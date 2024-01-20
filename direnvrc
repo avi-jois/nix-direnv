@@ -310,7 +310,7 @@ use_flake() {
         mkdir -p "$flake_inputs"
         flake_input_paths=$(_nix flake archive \
           --json --no-write-lock-file \
-          "$flake_dir")
+          "$flake_expr")
 
         while [[ $flake_input_paths =~ /nix/store/[^\"]+ ]]; do
           local store_path="${BASH_REMATCH[0]}"
